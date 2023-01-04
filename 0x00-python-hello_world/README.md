@@ -7,3 +7,4 @@
 6.Concatinate string
 7. Copy - Cut - Paste
 8. Create a new sentence
+9.Print The zend of python
