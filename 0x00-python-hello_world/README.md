@@ -3,3 +3,4 @@
 2.Print string with new line
 3.print integer
 4.Print float
+5.Print string x3
