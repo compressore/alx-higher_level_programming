@@ -5,3 +5,4 @@
 4.Print float
 5.Print string x3
 6.Concatinate string
+7. Copy - Cut - Paste
