@@ -10,3 +10,4 @@
 9.Print The zend of python
 10. Linked list cycle
 11. Hello, write
+13.Write a script that compiles a Python script file
