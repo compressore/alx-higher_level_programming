@@ -4,3 +4,4 @@
 3.print integer
 4.Print float
 5.Print string x3
+6.Concatinate string
