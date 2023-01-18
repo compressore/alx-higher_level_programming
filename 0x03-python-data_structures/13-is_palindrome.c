@@ -1,18 +1,59 @@
-#include <Python.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "lists.h"
 
-void print_python_list_info(PyObject *p)
+/**
+ * is_palindrome - Check if a linked list is a palindrome
+ * @head: The list
+ *
+ * Return: 1 if it's a palindrome, 0 otherwise
+ */
+int is_palindrome(listint_t **head)
 {
-	Py_ssize_t size_p, allocated, idx = 0;
-	PyObject *element;
+	listint_t *a = *head;
+	listint_t *b = *head;
 
-	size_p = PyList_Size(p);
-	allocated = ((PyListObject *)p)->allocated;
-	printf("[*] Size of the Python List = %ld\n", size_p);
-	printf("[*] Allocated = %ld\n", allocated);
-	while (idx < size_p)
+	if (*head == NULL)
+		return (1);
+
+	while (b && b->next && b->next->next)
 	{
-		element = PyList_GET_ITEM(p, idx);
-		printf("Element %ld: %s\n", idx, element->ob_type->tp_name);
-		idx++;
+		a = a->next;
+		b = b->next->next;
 	}
+
+	a = reverse_list(&a);
+	b = *head;
+	while (a && b)
+	{
+		if (a->n != b->n)
+			return (0);
+		a = a->next;
+		b = b->next;
+	}
+
+	return (1);
+}
+
+/**
+ * reverse_list - Reverse a linked list
+ * @head: The list
+ *
+ * Return: Pointer to the new head
+ */
+listint_t *reverse_list(listint_t **head)
+{
+	listint_t *prev = NULL;
+	listint_t *next = NULL;
+
+	while (*head)
+	{
+		next = (*head)->next;
+		(*head)->next = prev;
+		prev = *head;
+		*head = next;
+	}
+
+	*head = prev;
+	return (*head);
 }
