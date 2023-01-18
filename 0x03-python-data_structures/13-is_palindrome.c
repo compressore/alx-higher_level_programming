@@ -1,5 +1,5 @@
 #include "lists.h"
-
+#include <stddef.h>
 /**
  * is_palindrome - function to call check_pal to see if list is palindrome
  * @head: ptr to the beginning of the list
